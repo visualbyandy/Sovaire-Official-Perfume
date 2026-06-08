@@ -44,29 +44,6 @@ export const PERFUMES: Product[] = [
     volume: '100 mL',
     concentration: 'Extrait de Parfum',
     isBestSeller: true
-  },
-  {
-    id: 'Soviare-Fleur',
-    name: "Fleur de Gilded",
-    tagline: "Taman bunga mawar istana berbalut embun segar mekar di musim semi",
-    price: 180000,
-    originalPrice: 299000,
-    category: 'fresh-floral',
-    scentFamily: 'Fresh Floral Green & Rose',
-    description: "Tetesan embun pagi kebun bunga mawar yang dinamis dipadu keceriaan peony indah membawa kesegaran alam yang elegan.",
-    longDescription: "Segar bagaikan embun pagi di kebun bunga mawar yang disinari cahaya fajar yang hangat. Fleur de Gilded mengekspresikan sisi feminin yang lincah namun agung. Perpaduan apel hijau renyah, rumput berembun dengan mawar Centifolia yang segar serta peony putih yang megah, diselimuti kehangatan musk putih madu and cedarwood lembut.",
-    rating: 4.7,
-    notes: {
-      top: ['Green Apple', 'Dewy Grass', 'Tangerine'],
-      middle: ['Centifolia Rose Petals', 'Golden Peony', 'Freeseia'],
-      base: ['Honey Musk', 'Virginian Cedarwood', 'White Amber']
-    },
-    image: 'https://i.pinimg.com/736x/b7/c7/d0/b7c7d05eaff93b620ee789ce85004714.jpg',
-    stock: 0,
-    volume: '100 mL',
-    concentration: 'Extrait de Parfum',
-    isBestSeller: false
-  }
 ];
 
 export const INITIAL_REVIEWS: Review[] = [
@@ -87,15 +64,6 @@ export const INITIAL_REVIEWS: Review[] = [
     comment: 'Zephran adalah definisi aroma mewah berkelas yang segar tapi hangat dan maskulin! Kombinasi apel segar, kayu manis, dan ambernya menyatu sempurna. Setiap kali pakai ini di acara sore maupun malam, pasti ada yang bertanya parfum apa yang saya kenakan. Ketahanannya luar biasa, recommended banget!',
     date: '2026-05-11',
     isVerified: true
-  },
-  {
-    id: 'rev-4',
-    productId: 'Soviare-Fleur',
-    author: 'Clara Amanda',
-    rating: 4,
-    comment: 'Segar sekali! Baunya tidak pasaran, mawar yang berkelas dipadukan wangi rumput hijau berembun di pagi hari yang segar. Cocok buat siang hari atau ke kantor. Sukses terus sovairé!',
-    date: '2026-05-29',
-    isVerified: false
   }
 ];
 
