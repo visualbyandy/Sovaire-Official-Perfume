@@ -64,7 +64,6 @@ export const INITIAL_REVIEWS: Review[] = [
     comment: 'Zephran adalah definisi aroma mewah berkelas yang segar tapi hangat dan maskulin! Kombinasi apel segar, kayu manis, dan ambernya menyatu sempurna. Setiap kali pakai ini di acara sore maupun malam, pasti ada yang bertanya parfum apa yang saya kenakan. Ketahanannya luar biasa, recommended banget!',
     date: '2026-05-11',
     isVerified: true
-  }
 ];
 
 export const QUIZ_QUESTIONS = [
