@@ -1,6 +1,0 @@
-{
-  "name": "sovairé",
-  "description": "Butik toko parfum online premium bernuansa putih dan kemewahan dengan koleksi wewangian mewah.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
