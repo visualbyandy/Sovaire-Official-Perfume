@@ -403,9 +403,7 @@ export default function App() {
               {[
                 { label: 'Semua Koleksi', id: 'all' },
                 { label: 'Amber Floral', id: 'floral-amber' },
-                { label: 'Iris & Musk', id: 'musky' },
                 { label: 'Oud & Saffron', id: 'woody-oriental' },
-                { label: 'Fresh Green Rose', id: 'fresh-floral' }
               ].map((cat) => (
                 <button
                   key={cat.id}
