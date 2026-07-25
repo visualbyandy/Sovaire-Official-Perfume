@@ -39,7 +39,7 @@ export const PERFUMES: Product[] = [
       middle: ['Orange Blossom', 'Lily of the Valley'],
       base: ['Vanilla', 'Tonka Bean', 'Amber']
     },
-    image: 'https://id.pinterest.com/b8f9f5a5-04d8-4044-8754-c4a06d71bb31',
+    image: 'https://i.pinimg.com/736x/95/b5/5f/95b55fff22c26cae41879a0f9a0da8d0.jpg',
     stock: 15,
     volume: '100 mL',
     concentration: 'Extrait de Parfum',
