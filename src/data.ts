@@ -17,7 +17,7 @@ export const PERFUMES: Product[] = [
       middle: ['Saffron', 'Raspberry'],
       base: ['Amberwood', 'Benzoin', 'Geranium']
     },
-    image: 'https://i.pinimg.com/736x/2b/19/9e/2b199ec74cdb53d22272f9e5a14643e3.jpg',
+    image: 'https://i.pinimg.com/736x/a6/ae/f3/a6aef3ebd3b8f85064c17555832b9dfe.jpg',
     stock: 12,
     volume: '100 mL',
     concentration: 'Extrait de Parfum',
