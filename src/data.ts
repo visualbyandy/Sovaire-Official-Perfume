@@ -2,7 +2,7 @@ import { Product, Review } from './types';
 
 export const PERFUMES: Product[] = [
   {
-    id: 'Soviare-Noctera',
+    id: 'Sovaire-Noctera',
     name: "Noctera",
     tagline: "Keagungan malam mistis berbalut kemewahan oud & mawar merah",
     price: 180000,
@@ -24,7 +24,7 @@ export const PERFUMES: Product[] = [
     isBestSeller: true
   },
   {
-    id: 'Soviare-Zephran',
+    id: 'Sovaire-Zephran',
     name: "Zephran",
     tagline: "Kehangatan petualangan berbalut kesegaran apel & rempah mewah",
     price: 180000,
@@ -50,7 +50,7 @@ export const PERFUMES: Product[] = [
 export const INITIAL_REVIEWS: Review[] = [
   {
     id: 'rev-1',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Sri Rahayu K.',
     rating: 5,
     comment: 'Jujur sangat suka dengan Noctera! Aromanya luar biasa mewah, ada keseimbangan antara manis raspberry dengan mawar merah yang berpadu seksi bersama dengan keasapan oud murni. Di kulit saya tahan sampai 14 jam bahkan setelah wudu masih tercium tipis. Botolnya ditaruh di meja rias kelihatan sangat estetik dan indah!',
@@ -59,7 +59,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-2',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Bambang Hermawan',
     rating: 4,
     comment: 'Aroma oud dan dupa di Noctera ini sangat kental dan karismatik. Benar-benar wewangian yang merepresentasikan kemegahan malam. Sangat cocok dipakai untuk acara formal malam hari. Untuk penggunaan siang terik mungkin agak terlalu berat, tapi di ruangan ber-AC atau malam hari, ini nomor satu ketahanannya.',
@@ -68,7 +68,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-3',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Diana Azizah',
     rating: 5,
     comment: 'Zephran adalah definisi aroma mewah berkelas yang segar tapi hangat! Kombinasi apel segar, kayu manis, lavender, dan amber-nya menyatu sempurna. Setiap kali pakai ini di acara sore maupun malam, pasti ada yang bertanya parfum apa yang saya kenakan. Ketahanannya luar biasa, recommended banget!',
@@ -77,7 +77,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-4',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Reza Fahlevi',
     rating: 5,
     comment: 'Parfum harian terbaik saya saat ini! Ada sensasi manis vanilla hangat, tapi tetap segar di hidung berkat top note apple dan wild lavender. Spl-nya gila sih, bisa bikin satu ruangan noleh sewaktu baru masuk. Sukses terus Sovairé untuk local brand kualitas se-dewa ini!',
@@ -86,7 +86,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-5',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Siti Sarah',
     rating: 5,
     comment: 'Awalnya serves as blind buy karena penasaran dengan deskripsi oud dan mawar merahnya, tapi setelah dicoba... ya ampun wangi termewah yang pernah saya punya! Wanginya misterius, seksi, tapi tetap elegan dan tidak bikin pusing. Saffron dan raspberry di pertengahan aromanya manis manja seimbang banget.',
@@ -95,7 +95,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-6',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Aditya Pratama',
     rating: 4,
     comment: 'Wanginya sangat adiktif, kombinasi apple dan tonka bean-nya benar-benar juara. Sangat tahan lama di baju sampai besok harinya masih kecium wangi vanilla-amber lembutnya. Satu-satunya kekurangan adalah stok yang cepat habis jadi harus sering rebutan waktu restock.',
