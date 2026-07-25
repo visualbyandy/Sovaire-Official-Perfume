@@ -53,7 +53,7 @@ export const INITIAL_REVIEWS: Review[] = [
     productId: 'Soviare-Noctera',
     author: 'Sri Rahayu K.',
     rating: 5,
-    comment: 'Sangat suka dengan L\'Éclat Noctera! Aromanya luar biasa mewah, ada keseimbangan antara manis raspberry dengan mawar merah yang berpadu seksi bersama dengan keasapan oud murni. Di kulit saya tahan sampai 14 jam bahkan setelah wudu masih tercium tipis. Botolnya ditaruh di meja rias kelihatan sangat estetik dan indah!',
+    comment: 'Jujur sangat suka dengan Noctera! Aromanya luar biasa mewah, ada keseimbangan antara manis raspberry dengan mawar merah yang berpadu seksi bersama dengan keasapan oud murni. Di kulit saya tahan sampai 14 jam bahkan setelah wudu masih tercium tipis. Botolnya ditaruh di meja rias kelihatan sangat estetik dan indah!',
     date: '2026-05-18',
     isVerified: true
   },
