@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, ArrowDown, ShieldCheck, Heart, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../types';
 import { PERFUMES } from '../data';
 
@@ -10,6 +10,40 @@ interface HeroProps {
   onExploreProduct: (product: Product) => void;
 }
 
+// =========================================================================
+// DATA CAROUSEL SLIDES (Foto Carousel / Pemanis)
+// Anda bisa menambah foto carousel dengan mengopi-paste objek slide di bawah ini:
+// =========================================================================
+export const HERO_SLIDES = [
+  {
+    id: 'slide-1',
+    name: "Noctera",
+    concentration: 'Extrait de Parfum',
+    scentFamily: 'Warm Woody Rose & Oud Amber',
+    volume: '100 mL',
+    image: 'https://i.pinimg.com/736x/a6/ae/f3/a6aef3ebd3b8f85064c17555832b9dfe.jpg',
+    productId: 'Soviare-Noctera',
+  },
+  {
+    id: 'slide-2',
+    name: "Zephran",
+    concentration: 'Extrait de Parfum',
+    scentFamily: 'Fresh Spicy Amber & Woody',
+    volume: '100 mL',
+    image: 'https://i.pinimg.com/736x/95/b5/5f/95b55fff22c26cae41879a0f9a0da8d0.jpg',
+    productId: 'Soviare-Zephran',
+  },
+  {
+    id: 'slide-3',
+    name: "Sovaire Collection,
+    concentration: 'Aesthetic Showcase',
+    scentFamily: 'Luxury Atelier & Botanical Aura',
+    volume: 'Visual Edition',
+    image: 'https://i.pinimg.com/1200x/7c/9c/1c/7c9c1cd85663bddbf53b3b7b9e4e8aaf.jpg',
+    productId: 'Soviare-Noctera',
+  },
+];
+
 export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: HeroProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -18,26 +52,22 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % PERFUMES.length);
+      setCurrentIndex((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 4200);
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  const activeProduct = PERFUMES[currentIndex];
+  const activeSlide = HERO_SLIDES[currentIndex];
+  const linkedProduct = PERFUMES.find(p => p.id === activeSlide.productId) || bestSeller || PERFUMES[0];
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev - 1 + PERFUMES.length) % PERFUMES.length);
+    setCurrentIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
   };
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev + 1) % PERFUMES.length);
-  };
-
-  // Maps to premium high-resolution image asset directly
-  const getProductImage = (prod: Product) => {
-    return prod.image;
+    setCurrentIndex((prev) => (prev + 1) % HERO_SLIDES.length);
   };
 
   return (
@@ -77,7 +107,7 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
             <button
               id="hero-find-scent-btn"
               onClick={onLearnMore}
-              className="px-10 py-4 bg-[#C5A059] text-white text-xs uppercase tracking-widest hover:bg-[#b08d4a] transition-all rounded-full w-full sm:w-auto font-mono font-medium"
+              className="px-10 py-4 bg-[#C5A059] text-white text-xs uppercase tracking-widest hover:bg-[#b08d4a] transition-all rounded-full w-full sm:w-auto font-mono font-medium cursor-pointer"
             >
               CARI AROMA ANDA
             </button>
@@ -144,9 +174,9 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
                   <div className="absolute w-28 h-28 bg-[#C5A059]/5 rounded-full blur-xl"></div>
                   <AnimatePresence mode="wait">
                     <motion.img
-                      key={activeProduct.id}
-                      src={getProductImage(activeProduct)}
-                      alt={activeProduct.name}
+                      key={activeSlide.id}
+                      src={activeSlide.image}
+                      alt={activeSlide.name}
                       referrerPolicy="no-referrer"
                       initial={{ opacity: 0, scale: 0.9, y: 10 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -163,31 +193,31 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
                   <div className="w-8 h-[1px] bg-[#C5A059] mx-auto my-2"></div>
                   <AnimatePresence mode="wait">
                     <motion.div
-                      key={activeProduct.id}
+                      key={activeSlide.id}
                       initial={{ opacity: 0, y: 4 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -4 }}
                       transition={{ duration: 0.3 }}
                     >
                       <span className="text-lg font-serif italic text-brand-dark block truncate px-2">
-                        {activeProduct.name}
+                        {activeSlide.name}
                       </span>
                     </motion.div>
                   </AnimatePresence>
                 </div>
 
                 <div className="text-center font-sans">
-                  <p className="text-[9px] uppercase tracking-wider text-[#C5A059] font-medium tracking-[0.15em]">{activeProduct.concentration}</p>
-                  <p className="text-[10px] mt-0.5 text-gray-500 font-mono">{activeProduct.scentFamily} • {activeProduct.volume}</p>
+                  <p className="text-[9px] uppercase tracking-wider text-[#C5A059] font-medium tracking-[0.15em]">{activeSlide.concentration}</p>
+                  <p className="text-[10px] mt-0.5 text-gray-500 font-mono">{activeSlide.scentFamily} • {activeSlide.volume}</p>
                 </div>
               </div>
 
               {/* Quick action button inside the card framework */}
               <div className="absolute inset-x-4 bottom-4 opacity-0 hover:opacity-100 focus-within:opacity-100 transition-opacity bg-white/95 backdrop-blur-xs p-3 border border-[#C5A059]/20 text-center flex flex-col items-center justify-center shadow-lg">
-                <span className="text-[9px] font-mono text-gold-600 uppercase tracking-widest block mb-1">Maison {activeProduct.name}</span>
+                <span className="text-[9px] font-mono text-gold-600 uppercase tracking-widest block mb-1">Maison {activeSlide.name}</span>
                 <button
-                  id={`hero-carousel-detail-btn-${activeProduct.id}`}
-                  onClick={() => onExploreProduct(activeProduct)}
+                  id={`hero-carousel-detail-btn-${activeSlide.id}`}
+                  onClick={() => onExploreProduct(linkedProduct)}
                   className="bg-[#C5A059] hover:bg-[#b08d4a] text-white rounded-none w-full py-2 text-[10px] uppercase tracking-widest font-mono transition-colors cursor-pointer"
                 >
                   Cium Aroma
@@ -208,7 +238,7 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
 
           {/* Carousel minimal index dots */}
           <div className="flex gap-2 mt-6 z-10 relative">
-            {PERFUMES.map((_, idx) => (
+            {HERO_SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
@@ -217,7 +247,7 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
                     ? 'w-6 bg-[#C5A059]' 
                     : 'bg-[#C5A059]/30 hover:bg-[#C5A059]/60'
                 }`}
-                title={`Ke Aroma ${idx + 1}`}
+                title={`Ke Slide ${idx + 1}`}
               ></button>
             ))}
           </div>
@@ -251,3 +281,4 @@ export default function Hero({ onLearnMore, bestSeller, onExploreProduct }: Hero
     </section>
   );
 }
+
