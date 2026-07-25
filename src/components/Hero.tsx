@@ -35,7 +35,7 @@ export const HERO_SLIDES = [
   },
   {
     id: 'slide-3',
-    name: "Sovaire Collection,
+    name: "Sovaire Collection",
     concentration: 'Aesthetic Showcase',
     scentFamily: 'Luxury Atelier & Botanical Aura',
     volume: 'Visual Edition',
