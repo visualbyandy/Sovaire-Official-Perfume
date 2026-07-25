@@ -3,7 +3,7 @@ import { Product, Review } from './types';
 export const PERFUMES: Product[] = [
   {
     id: 'Soviare-Noctera',
-    name: "L'Éclat Noctera",
+    name: "Noctera",
     tagline: "Keagungan malam mistis berbalut kemewahan oud & mawar merah",
     price: 180000,
     originalPrice: 299000,
