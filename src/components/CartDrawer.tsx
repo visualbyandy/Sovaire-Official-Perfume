@@ -310,7 +310,7 @@ Terima kasih.`;
                           id="ship-name"
                           type="text"
                           required
-                          placeholder="Suryo Hadi Kusumo"
+                          placeholder="(cth nama)"
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
                           className="w-full text-xs p-3 bg-white border border-[#C5A059]/20 focus:border-[#C5A059] rounded-none focus:outline-none text-[#1A1A1A]"
@@ -336,7 +336,7 @@ Terima kasih.`;
                           id="ship-address"
                           required
                           rows={3}
-                          placeholder="Jalan Kebon Jeruk No 14, RT 02/09, Jakarta Barat 11530"
+                          placeholder="Cth : (Jalan Kebon Jeruk No 14, RT 02/09, Jakarta Barat 11530)"
                           value={address}
                           onChange={(e) => setAddress(e.target.value)}
                           className="w-full text-xs p-3 bg-white border border-[#C5A059]/20 focus:border-[#C5A059] rounded-none focus:outline-none text-[#1A1A1A] resize-none"
