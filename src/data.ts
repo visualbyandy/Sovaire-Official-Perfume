@@ -50,7 +50,7 @@ export const PERFUMES: Product[] = [
 export const INITIAL_REVIEWS: Review[] = [
   {
     id: 'rev-1',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Anissa Rahmawati',
     rating: 5,
     comment: 'Sensasi manis raspberry & oud yang luar biasa mewah. Paling pas dipakai pas night out!',
@@ -59,7 +59,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-2',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Bramantyo Herdian',
     rating: 5,
     comment: 'Botolnya di meja rias sangat berkelas, aromanya tahan belasan jam tanpa pudar.',
@@ -68,7 +68,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-3',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Clara Verina',
     rating: 5,
     comment: 'Kombinasi apple dan cinnamon nya bikin jatuh cinta dari semprotan pertama.',
@@ -77,7 +77,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-4',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Dewi Sastrowardoyo',
     rating: 5,
     comment: 'Setiap kali pakai ini selalu dapat pujian di kantor. Signature scent favoritku!',
@@ -86,7 +86,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-5',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Farhan Mahendra',
     rating: 5,
     comment: 'Sillage dan projection gila banget, wangi lavender dan vanilla nya seimbang.',
@@ -95,7 +95,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-6',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Gisella Amalia',
     rating: 5,
     comment: 'Kemasan box & flacon emasnya super estetik buat dekorasi meja vanity.',
@@ -104,7 +104,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-7',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Hendra Kusuma',
     rating: 5,
     comment: 'Warm woody notes nya sangat ramah di hidung, tidak menyengat tapi berwibawa.',
@@ -113,7 +113,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-8',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Irene Tanjaya',
     rating: 5,
     comment: 'Aroma mawar merah dan saffron nya sangat sensual dan memikat.',
@@ -122,7 +122,7 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-9',
-    productId: 'Soviare-Zephran',
+    productId: 'Sovaire-Zephran',
     author: 'Jonathan Pratama',
     rating: 5,
     comment: 'Kado ulang tahun terbaik dari pasangan! Packaging mewahnya beneran juara.',
@@ -131,13 +131,14 @@ export const INITIAL_REVIEWS: Review[] = [
   },
   {
     id: 'rev-10',
-    productId: 'Soviare-Noctera',
+    productId: 'Sovaire-Noctera',
     author: 'Kania Wijaya',
     rating: 5,
     comment: 'Sekali semprot di titik nadi, wanginya masih nempel bahkan di baju keesokan harinya.',
     date: '2026-06-06',
     isVerified: true
   }
+];
 
 export const QUIZ_QUESTIONS = [
   {
