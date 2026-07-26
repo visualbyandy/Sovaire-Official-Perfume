@@ -50,59 +50,94 @@ export const PERFUMES: Product[] = [
 export const INITIAL_REVIEWS: Review[] = [
   {
     id: 'rev-1',
-    productId: 'Sovaire-Noctera',
-    author: 'Sri Rahayu K.',
+    productId: 'Soviare-Noctera',
+    author: 'Anissa Rahmawati',
     rating: 5,
-    comment: 'Jujur sangat suka dengan Noctera! Aromanya luar biasa mewah, ada keseimbangan antara manis raspberry dengan mawar merah yang berpadu seksi bersama dengan keasapan oud murni. Di kulit saya tahan sampai 14 jam bahkan setelah wudu masih tercium tipis. Botolnya ditaruh di meja rias kelihatan sangat estetik dan indah!',
+    comment: 'Sensasi manis raspberry & oud yang luar biasa mewah. Paling pas dipakai pas night out!',
     date: '2026-05-18',
     isVerified: true
   },
   {
     id: 'rev-2',
-    productId: 'Sovaire-Noctera',
-    author: 'Bambang Hermawan',
-    rating: 4,
-    comment: 'Aroma oud dan dupa di Noctera ini sangat kental dan karismatik. Benar-benar wewangian yang merepresentasikan kemegahan malam. Sangat cocok dipakai untuk acara formal malam hari. Untuk penggunaan siang terik mungkin agak terlalu berat, tapi di ruangan ber-AC atau malam hari, ini nomor satu ketahanannya.',
-    date: '2026-05-25',
+    productId: 'Soviare-Noctera',
+    author: 'Bramantyo Herdian',
+    rating: 5,
+    comment: 'Botolnya di meja rias sangat berkelas, aromanya tahan belasan jam tanpa pudar.',
+    date: '2026-05-20',
     isVerified: true
   },
   {
     id: 'rev-3',
-    productId: 'Sovaire-Zephran',
-    author: 'Diana Azizah',
+    productId: 'Soviare-Zephran',
+    author: 'Clara Verina',
     rating: 5,
-    comment: 'Zephran adalah definisi aroma mewah berkelas yang segar tapi hangat! Kombinasi apel segar, kayu manis, lavender, dan amber-nya menyatu sempurna. Setiap kali pakai ini di acara sore maupun malam, pasti ada yang bertanya parfum apa yang saya kenakan. Ketahanannya luar biasa, recommended banget!',
-    date: '2026-05-11',
+    comment: 'Kombinasi apple dan cinnamon nya bikin jatuh cinta dari semprotan pertama.',
+    date: '2026-05-22',
     isVerified: true
   },
   {
     id: 'rev-4',
-    productId: 'Sovaire-Zephran',
-    author: 'Reza Fahlevi',
+    productId: 'Soviare-Noctera',
+    author: 'Dewi Sastrowardoyo',
     rating: 5,
-    comment: 'Parfum harian terbaik saya saat ini! Ada sensasi manis vanilla hangat, tapi tetap segar di hidung berkat top note apple dan wild lavender. Spl-nya gila sih, bisa bikin satu ruangan noleh sewaktu baru masuk. Sukses terus Sovairé untuk local brand kualitas se-dewa ini!',
-    date: '2026-05-30',
+    comment: 'Setiap kali pakai ini selalu dapat pujian di kantor. Signature scent favoritku!',
+    date: '2026-05-25',
     isVerified: true
   },
   {
     id: 'rev-5',
-    productId: 'Sovaire-Noctera',
-    author: 'Siti Sarah',
+    productId: 'Soviare-Zephran',
+    author: 'Farhan Mahendra',
     rating: 5,
-    comment: 'Awalnya serves as blind buy karena penasaran dengan deskripsi oud dan mawar merahnya, tapi setelah dicoba... ya ampun wangi termewah yang pernah saya punya! Wanginya misterius, seksi, tapi tetap elegan dan tidak bikin pusing. Saffron dan raspberry di pertengahan aromanya manis manja seimbang banget.',
-    date: '2026-06-02',
-    isVerified: false
+    comment: 'Sillage dan projection gila banget, wangi lavender dan vanilla nya seimbang.',
+    date: '2026-05-28',
+    isVerified: true
   },
   {
     id: 'rev-6',
-    productId: 'Sovaire-Zephran',
-    author: 'Aditya Pratama',
-    rating: 4,
-    comment: 'Wanginya sangat adiktif, kombinasi apple dan tonka bean-nya benar-benar juara. Sangat tahan lama di baju sampai besok harinya masih kecium wangi vanilla-amber lembutnya. Satu-satunya kekurangan adalah stok yang cepat habis jadi harus sering rebutan waktu restock.',
+    productId: 'Soviare-Noctera',
+    author: 'Gisella Amalia',
+    rating: 5,
+    comment: 'Kemasan box & flacon emasnya super estetik buat dekorasi meja vanity.',
+    date: '2026-06-01',
+    isVerified: true
+  },
+  {
+    id: 'rev-7',
+    productId: 'Soviare-Zephran',
+    author: 'Hendra Kusuma',
+    rating: 5,
+    comment: 'Warm woody notes nya sangat ramah di hidung, tidak menyengat tapi berwibawa.',
+    date: '2026-06-03',
+    isVerified: true
+  },
+  {
+    id: 'rev-8',
+    productId: 'Soviare-Noctera',
+    author: 'Irene Tanjaya',
+    rating: 5,
+    comment: 'Aroma mawar merah dan saffron nya sangat sensual dan memikat.',
+    date: '2026-06-04',
+    isVerified: true
+  },
+  {
+    id: 'rev-9',
+    productId: 'Soviare-Zephran',
+    author: 'Jonathan Pratama',
+    rating: 5,
+    comment: 'Kado ulang tahun terbaik dari pasangan! Packaging mewahnya beneran juara.',
     date: '2026-06-05',
     isVerified: true
+  },
+  {
+    id: 'rev-10',
+    productId: 'Soviare-Noctera',
+    author: 'Kania Wijaya',
+    rating: 5,
+    comment: 'Sekali semprot di titik nadi, wanginya masih nempel bahkan di baju keesokan harinya.',
+    date: '2026-06-06',
+    isVerified: true
   }
-];
 
 export const QUIZ_QUESTIONS = [
   {
