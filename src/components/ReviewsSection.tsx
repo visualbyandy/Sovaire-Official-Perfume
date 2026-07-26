@@ -15,10 +15,10 @@ const TESTIMONIAL_PHOTO_SLIDES = [
     id: 'photo-1',
     author: 'Anissa Rahmawati',
     handle: '@anissa.scents',
-    productName: "Noctera",
+    productName: "Noctera & Zephran",
     rating: 5,
     caption: 'Sensasi manis raspberry & oud yang luar biasa mewah. Paling pas dipakai pas night out!',
-    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop',
+    image: 'https://i.pinimg.com/1200x/49/2e/6f/492e6fd31bfc85480a1ae7b884382de0.jpg',
     tag: 'Night Out Aesthetics'
   },
   {
@@ -38,7 +38,7 @@ const TESTIMONIAL_PHOTO_SLIDES = [
     productName: 'Zephran',
     rating: 5,
     caption: 'Kombinasi apple dan cinnamon nya bikin jatuh cinta dari semprotan pertama.',
-    image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=800&auto=format&fit=crop',
+    image: 'https://i.pinimg.com/1200x/72/ce/8b/72ce8bc2c13f9ea32a695e7843af33fe.jpg',
     tag: 'Spicy Amber Notes'
   },
   {
