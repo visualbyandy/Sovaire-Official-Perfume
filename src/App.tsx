@@ -643,7 +643,7 @@ export default function App() {
                       <strong className="text-brand-dark font-mono uppercase text-[10px] tracking-wider block mb-0.5">Layanan WhatsApp</strong>
                       <p className="mt-0.5">
                         <a 
-                          href="https://wa.me/6287781857169" 
+                          href="https://wa.me/6287748534698" 
                           target="_blank" 
                           rel="noreferrer"
                           className="hover:text-brand-gold font-mono font-medium tracking-wide transition-colors border-b border-dotted border-gray-300 hover:border-brand-gold pb-0.5"
