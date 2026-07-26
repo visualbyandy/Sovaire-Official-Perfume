@@ -76,7 +76,7 @@ export default function CartDrawer({
       return;
     }
 
-    const waNumber = '6287781857169';
+    const waNumber = '6287748534698';
     const itemsText = cartItems
       .map(
         (item) =>
