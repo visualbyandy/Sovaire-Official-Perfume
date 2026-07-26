@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Review, Product } from '../types';
-import { Star, CheckCircle, MessageSquarePlus, PenTool, Sparkles } from 'lucide-react';
+import { Star, CheckCircle, MessageSquarePlus, PenTool, Sparkles, ChevronLeft, ChevronRight, Camera, Quote } from 'lucide-react';
 
 interface ReviewsSectionProps {
   reviews: Review[];
@@ -9,9 +9,132 @@ interface ReviewsSectionProps {
   onAddReview: (review: Review) => void;
 }
 
+// 10 Slide Photos Testimonials Data (4:5 Aspect Ratio)
+const TESTIMONIAL_PHOTO_SLIDES = [
+  {
+    id: 'photo-1',
+    author: 'Anissa Rahmawati',
+    handle: '@anissa.scents',
+    productName: "Noctera",
+    rating: 5,
+    caption: 'Sensasi manis raspberry & oud yang luar biasa mewah. Paling pas dipakai pas night out!',
+    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop',
+    tag: 'Night Out Aesthetics'
+  },
+  {
+    id: 'photo-2',
+    author: 'Bramantyo Herdian',
+    handle: '@bram.fragrance',
+    productName: "Noctera",
+    rating: 5,
+    caption: 'Botolnya di meja rias sangat berkelas, aromanya tahan belasan jam tanpa pudar.',
+    image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop',
+    tag: 'Executive Elegance'
+  },
+  {
+    id: 'photo-3',
+    author: 'Clara Verina',
+    handle: '@clara.v',
+    productName: 'Zephran',
+    rating: 5,
+    caption: 'Kombinasi apple dan cinnamon nya bikin jatuh cinta dari semprotan pertama.',
+    image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=800&auto=format&fit=crop',
+    tag: 'Spicy Amber Notes'
+  },
+  {
+    id: 'photo-4',
+    author: 'Dewi Sastrowardoyo',
+    handle: '@dewisastro',
+    productName: "Noctera",
+    rating: 5,
+    caption: 'Setiap kali pakai ini selalu dapat pujian di kantor. Signature scent favoritku!',
+    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop',
+    tag: 'Daily Luxury Scent'
+  },
+  {
+    id: 'photo-5',
+    author: 'Farhan Mahendra',
+    handle: '@farhan.mh',
+    productName: 'Zephran',
+    rating: 5,
+    caption: 'Sillage dan projection gila banget, wangi lavender dan vanilla nya seimbang.',
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop',
+    tag: 'Sillage & Projection'
+  },
+  {
+    id: 'photo-6',
+    author: 'Gisella Amalia',
+    handle: '@gisella.a',
+    productName: "Noctera",
+    rating: 5,
+    caption: 'Kemasan box & flacon emasnya super estetik buat dekorasi meja vanity.',
+    image: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=800&auto=format&fit=crop',
+    tag: 'Vanity Setup'
+  },
+  {
+    id: 'photo-7',
+    author: 'Hendra Kusuma',
+    handle: '@hendrakusuma',
+    productName: 'Zephran',
+    rating: 5,
+    caption: 'Warm woody notes nya sangat ramah di hidung, tidak menyengat tapi berwibawa.',
+    image: 'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?q=80&w=800&auto=format&fit=crop',
+    tag: 'Warm Woody Vibe'
+  },
+  {
+    id: 'photo-8',
+    author: 'Irene Tanjaya',
+    handle: '@irenetan',
+    productName: "Noctera",
+    rating: 5,
+    caption: 'Aroma mawar merah dan saffron nya sangat sensual dan memikat.',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop',
+    tag: 'Sensual Rose & Saffron'
+  },
+  {
+    id: 'photo-9',
+    author: 'Jonathan Pratama',
+    handle: '@jonathan.p',
+    productName: 'Zephran',
+    rating: 5,
+    caption: 'Kado ulang tahun terbaik dari pasangan! Packaging mewahnya beneran juara.',
+    image: 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=800&auto=format&fit=crop',
+    tag: 'Perfect Luxury Gift'
+  },
+  {
+    id: 'photo-10',
+    author: 'Kania Wijaya',
+    handle: '@kania.wj',
+    productName: "Noctera",
+    rating: 5,
+    caption: 'Sekali semprot di titik nadi, wanginya masih nempel bahkan di baju keesokan harinya.',
+    image: 'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=800&auto=format&fit=crop',
+    tag: 'Long Lasting Aura'
+  }
+];
+
 export default function ReviewsSection({ reviews, products, onAddReview }: ReviewsSectionProps) {
   const [selectedProductReview, setSelectedProductReview] = useState<string>('all');
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [photoSlideIndex, setPhotoSlideIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+  // Auto-play photo carousel slider
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    const interval = setInterval(() => {
+      setPhotoSlideIndex((prev) => (prev + 1) % TESTIMONIAL_PHOTO_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isAutoPlay]);
+
+  const handleNextPhoto = () => {
+    setPhotoSlideIndex((prev) => (prev + 1) % TESTIMONIAL_PHOTO_SLIDES.length);
+  };
+
+  const handlePrevPhoto = () => {
+    setPhotoSlideIndex((prev) => (prev - 1 + TESTIMONIAL_PHOTO_SLIDES.length) % TESTIMONIAL_PHOTO_SLIDES.length);
+  };
 
   // Form states
   const [authorName, setAuthorName] = useState('');
@@ -262,6 +385,174 @@ export default function ReviewsSection({ reviews, products, onAddReview }: Revie
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* 10-SLIDE PHOTO TESTIMONIAL CAROUSEL (ASPECT 4:5) */}
+        <div className="mb-16 bg-[#FBF9F5] border border-[#C5A059]/30 rounded-2xl p-6 md:p-8 shadow-xs relative overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="inline-flex items-center gap-1.5 text-[#C5A059] font-sans text-[10px] tracking-[0.25em] uppercase font-semibold bg-[#C5A059]/10 border border-[#C5A059]/30 px-3 py-1 rounded-full mb-2">
+                <Camera className="w-3.5 h-3.5" /> Galeri Impresi Visual (4:5)
+              </span>
+              <h3 className="text-2xl font-serif text-[#1A1A1A] font-light">
+                Momen Bersama Sovairé
+              </h3>
+              <p className="text-xs font-sans text-gray-500 mt-1">
+                10 dokumentasi aesthetic & ulasan bergambar dari para pecinta wewangian kami.
+              </p>
+            </div>
+
+            {/* Controls */}
+            <div className="flex items-center gap-3 self-end md:self-auto">
+              <span className="text-xs font-mono text-[#C5A059] font-medium tracking-wider">
+                0{photoSlideIndex + 1} / 10
+              </span>
+              <div className="flex gap-1.5">
+                <button
+                  id="testimonial-photo-prev-btn"
+                  onClick={handlePrevPhoto}
+                  onMouseEnter={() => setIsAutoPlay(false)}
+                  onMouseLeave={() => setIsAutoPlay(true)}
+                  className="w-9 h-9 rounded-full border border-[#C5A059]/40 bg-white hover:bg-[#1A1A1A] hover:text-[#C5A059] hover:border-[#1A1A1A] text-[#1A1A1A] flex items-center justify-center transition-all cursor-pointer shadow-xs"
+                  aria-label="Foto Sebelumnya"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  id="testimonial-photo-next-btn"
+                  onClick={handleNextPhoto}
+                  onMouseEnter={() => setIsAutoPlay(false)}
+                  onMouseLeave={() => setIsAutoPlay(true)}
+                  className="w-9 h-9 rounded-full border border-[#C5A059]/40 bg-white hover:bg-[#1A1A1A] hover:text-[#C5A059] hover:border-[#1A1A1A] text-[#1A1A1A] flex items-center justify-center transition-all cursor-pointer shadow-xs"
+                  aria-label="Foto Selanjutnya"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* MAIN 4:5 ASPECT RATIO SLIDER DISPLAY */}
+          <div 
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            onMouseEnter={() => setIsAutoPlay(false)}
+            onMouseLeave={() => setIsAutoPlay(true)}
+          >
+            {/* Active Card - Featured 4:5 Photo */}
+            <div className="lg:col-span-5 relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].id}
+                  initial={{ opacity: 0, scale: 0.96, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: -10 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  className="relative aspect-[4/5] rounded-xl overflow-hidden border border-[#C5A059]/40 shadow-lg group bg-stone-900"
+                >
+                  <img
+                    src={TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].image}
+                    alt={TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].author}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+
+                  {/* Gradient Overlay for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3 inset-x-3 flex justify-between items-center z-10">
+                    <span className="bg-[#1A1A1A]/80 backdrop-blur-md text-[#C5A059] border border-[#C5A059]/40 text-[9px] uppercase font-mono tracking-widest px-2.5 py-1 rounded-full shadow-xs">
+                      {TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].tag}
+                    </span>
+                    <div className="flex gap-0.5 bg-black/60 backdrop-blur-md px-2 py-1 rounded-full border border-gold-400/30">
+                      {[1, 2, 3, 4, 5].map((s) => (
+                        <Star key={s} className="w-3 h-3 fill-[#C5A059] text-[#C5A059]" />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom Text Content */}
+                  <div className="absolute bottom-0 inset-x-0 p-5 text-white z-10">
+                    <div className="flex items-center gap-1.5 text-gold-300 text-[10px] font-mono uppercase tracking-wider mb-1">
+                      <span>{TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].productName}</span>
+                    </div>
+                    <p className="text-xs font-sans italic text-stone-200 mb-3 leading-relaxed">
+                      "{TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].caption}"
+                    </p>
+                    <div className="pt-2 border-t border-white/20 flex justify-between items-end">
+                      <div>
+                        <h4 className="font-serif text-sm font-medium text-white">
+                          {TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].author}
+                        </h4>
+                        <span className="text-[10px] font-mono text-gold-300/80 block">
+                          {TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].handle}
+                        </span>
+                      </div>
+                      <span className="text-[9px] font-mono bg-gold-500/20 text-gold-200 border border-gold-400/30 px-2 py-0.5 rounded uppercase">
+                        Verified Photo
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Desktop Carousel Details & Multi-Card Preview */}
+            <div className="lg:col-span-7 flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <Quote className="w-6 h-6 text-[#C5A059] opacity-80" />
+                  <span className="text-[11px] font-mono uppercase text-[#C5A059] tracking-widest font-semibold">
+                    Koleksi Foto User #{photoSlideIndex + 1}
+                  </span>
+                </div>
+                <h4 className="text-xl font-serif text-[#1A1A1A] font-medium mb-3">
+                  {TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].author}
+                </h4>
+                <p className="text-sm font-sans text-gray-600 leading-relaxed italic mb-4 bg-white p-4 border-l-2 border-[#C5A059] rounded-r-lg shadow-2xs">
+                  "{TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].caption}"
+                </p>
+                <div className="flex items-center gap-3 text-xs font-mono text-gray-500 mb-6">
+                  <span className="text-[#C5A059] font-medium">Ulasan Parfum:</span>
+                  <span className="bg-white border border-[#C5A059]/30 px-2.5 py-1 rounded-md text-[11px] text-brand-dark font-semibold">
+                    SOVAIRÉ {TESTIMONIAL_PHOTO_SLIDES[photoSlideIndex].productName.toUpperCase()}
+                  </span>
+                </div>
+              </div>
+
+              {/* 10 THUMBNAILS STRIP (4:5 ASPECT RATIO) */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400 block mb-2.5">
+                  Pilih Slide Foto (10 Slide):
+                </span>
+                <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
+                  {TESTIMONIAL_PHOTO_SLIDES.map((slide, idx) => (
+                    <button
+                      key={slide.id}
+                      id={`testimonial-thumb-${idx}`}
+                      onClick={() => setPhotoSlideIndex(idx)}
+                      className={`relative aspect-[4/5] rounded-md overflow-hidden border transition-all cursor-pointer ${
+                        idx === photoSlideIndex
+                          ? 'border-2 border-[#C5A059] ring-2 ring-[#C5A059]/30 scale-105 shadow-md z-10'
+                          : 'border-stone-200 opacity-60 hover:opacity-100 hover:border-[#C5A059]/60'
+                      }`}
+                      title={`${slide.author} - ${slide.productName}`}
+                    >
+                      <img
+                        src={slide.image}
+                        alt={slide.author}
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                      <span className="absolute bottom-0 inset-x-0 bg-black/70 text-[8px] font-mono text-white text-center py-0.5">
+                        {idx + 1}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Filter and Reviews list */}
         <div className="bg-white border border-gold-200/60 rounded-3xl p-6 md:p-8 shadow-sm">
