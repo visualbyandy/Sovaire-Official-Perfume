@@ -80,7 +80,7 @@ export default function Footer({ onNavigateTo }: FooterProps) {
                 Ciledug Tangerang 15154
               </span>
             </p>
-            <a href="https://wa.me/6287781857169" target="_blank" rel="noreferrer" className="flex items-center gap-2 justify-center md:justify-start hover:text-brand-gold transition-colors" referrerPolicy="no-referrer">
+            <a href="https://wa.me/6287748534698" target="_blank" rel="noreferrer" className="flex items-center gap-2 justify-center md:justify-start hover:text-brand-gold transition-colors" referrerPolicy="no-referrer">
               <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
               <span>087781857169</span>
             </a>
